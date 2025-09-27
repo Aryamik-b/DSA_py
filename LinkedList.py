@@ -107,5 +107,27 @@ class LinkedList:
         temp.next = None
         self.length -= 1
         return temp
+    
+    def reverse(self):
+        temp=self.head
+        self.head,self.tail=self.tail,self.head
+        before=None
+        after=temp.next
+        while temp is not None:
+            after=temp.next
+            temp.next=before
+            before=temp
+            temp=after     
 
-        
+
+
+ll=LinkedList(1)
+ll.append(2)
+ll.append(3)
+ll.append(4)
+
+print(ll.printlist())
+
+ll.reverse()
+
+print(ll.printlist())
